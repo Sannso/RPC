@@ -1,27 +1,31 @@
 from jsonrpclib import Server
 from jsonrpclib.SimpleJSONRPCServer import SimpleJSONRPCServer
-from math import log
 
 class MyFuncs:
 
     def add(self, x, y):
-        conn = Server(("localhost", 1007))
-        print(conn.sum(x, y))
+        conn = Server('http://localhost:1007')
+        return conn.sum(x, y)
 
     def substract(self, x, y):
-        return x - y
+        conn = Server('http://localhost:1008')
+        return conn.sub(x, y)
 
     def mul(self, x, y):
-        return x * y
+        conn = Server('http://localhost:1009')
+        return conn.mul(x, y)
 
     def div(self, x, y):
-        return x // y
+        conn = Server('http://localhost:1010')
+        return conn.div(x, y)
 
     def pow(self, x, y):
-        return x ^ y
+        conn = Server('http://localhost:1011')
+        return conn.pow(x, y)
 
     def log(self, x, y):
-        return log(x, y)
+        conn = Server('http://localhost:1012')
+        return conn.logarithm(x, y)
 
 def main():
     server = SimpleJSONRPCServer(("localhost", 1006))
